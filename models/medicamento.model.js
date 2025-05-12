@@ -29,16 +29,16 @@ module.exports = (sequelize, Sequelize) => {
     marca: {
       type: Sequelize.STRING
     },
-    // Clave foránea para Especialidad
+   
     codEspec: {
       type: Sequelize.INTEGER,
       references: {
-        model: 'especialidads', // Sequelize añade 's' al nombre de la tabla
+        model: 'especialidads', 
         key: 'codEspec'
       }
     }
   }, {
-    timestamps: false // Desactivar createdAt y updatedAt
+    timestamps: false 
   });
 
   return Medicamento;

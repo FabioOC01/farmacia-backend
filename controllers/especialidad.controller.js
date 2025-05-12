@@ -1,9 +1,9 @@
 const db = require("../models");
 const Especialidad = db.especialidad;
 
-// Crear y guardar una nueva Especialidad
+
 exports.create = async (req, res) => {
-  // Validar solicitud
+
   if (!req.body.descripcionEsp) {
     res.status(400).send({
       message: "La descripción no puede estar vacía!"
@@ -11,12 +11,12 @@ exports.create = async (req, res) => {
     return;
   }
 
-  // Crear una Especialidad
+  
   const especialidad = {
     descripcionEsp: req.body.descripcionEsp
   };
 
-  // Guardar Especialidad en la base de datos
+  
   try {
     const data = await Especialidad.create(especialidad);
     res.send(data);
@@ -27,7 +27,6 @@ exports.create = async (req, res) => {
   }
 };
 
-// Obtener todas las Especialidades de la base de datos
 exports.findAll = async (req, res) => {
   try {
     const data = await Especialidad.findAll();
@@ -39,7 +38,6 @@ exports.findAll = async (req, res) => {
   }
 };
 
-// Encontrar una única Especialidad con un id
 exports.findOne = async (req, res) => {
   const id = req.params.id;
 
@@ -59,7 +57,6 @@ exports.findOne = async (req, res) => {
   }
 };
 
-// Actualizar una Especialidad por el id
 exports.update = async (req, res) => {
   const id = req.params.id;
 
@@ -84,7 +81,6 @@ exports.update = async (req, res) => {
   }
 };
 
-// Eliminar una Especialidad con el id especificado
 exports.delete = async (req, res) => {
   const id = req.params.id;
 

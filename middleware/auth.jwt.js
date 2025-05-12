@@ -27,7 +27,7 @@ isAdmin = async (req, res, next) => {
   try {
     const usuario = await Usuario.findByPk(req.userId);
     
-    if (usuario.esAdmin) {
+    if (usuario && usuario.esAdmin) { 
       next();
       return;
     }
@@ -36,6 +36,7 @@ isAdmin = async (req, res, next) => {
       message: "Require Admin Role!"
     });
   } catch (error) {
+    console.error("Error en middleware isAdmin:", error); 
     res.status(500).send({
       message: "Unable to validate user role!"
     });
@@ -47,4 +48,4 @@ const authJwt = {
   isAdmin
 };
 
-module.exports = authJwt;
+module.exports = authJwt; 

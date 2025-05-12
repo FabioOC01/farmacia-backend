@@ -10,11 +10,9 @@ module.exports = function(app) {
     next();
   });
 
-  // Rutas públicas
   app.get("/api/medicamentos", controller.findAll);
   app.get("/api/medicamentos/:id", controller.findOne);
   
-  // Rutas protegidas (requieren token y rol de admin)
   app.post(
     "/api/medicamentos",
     [authJwt.verifyToken, authJwt.isAdmin],

@@ -17,12 +17,12 @@ const db = {};
 db.Sequelize = Sequelize;
 db.sequelize = sequelize;
 
-// Importar modelos
+
 db.usuario = require("./usuario.model.js")(sequelize, Sequelize);
 db.especialidad = require("./especialidad.model.js")(sequelize, Sequelize);
 db.medicamento = require("./medicamento.model.js")(sequelize, Sequelize);
 
-// Establecer relaciones
+
 db.especialidad.hasMany(db.medicamento, { 
   foreignKey: "codEspec",
   onDelete: "CASCADE" 

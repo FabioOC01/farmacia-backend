@@ -10,11 +10,10 @@ module.exports = function(app) {
     next();
   });
 
-  // Rutas públicas
   app.get("/api/especialidades", controller.findAll);
   app.get("/api/especialidades/:id", controller.findOne);
   
-  // Rutas protegidas (requieren token y rol de admin)
+  
   app.post(
     "/api/especialidades",
     [authJwt.verifyToken, authJwt.isAdmin],

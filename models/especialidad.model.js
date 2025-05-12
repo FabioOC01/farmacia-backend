@@ -9,7 +9,7 @@ module.exports = (sequelize, Sequelize) => {
       type: Sequelize.STRING
     }
   }, {
-    timestamps: false // Desactivar createdAt y updatedAt
+    timestamps: false 
   });
 
   return Especialidad;

@@ -7,7 +7,7 @@ const bcrypt = require("bcryptjs");
 
 exports.signup = async (req, res) => {
   try {
-    // Guardar Usuario en la Base de datos
+    
     const usuario = await Usuario.create({
       nombre: req.body.nombre,
       email: req.body.email,
@@ -46,7 +46,7 @@ exports.signin = async (req, res) => {
     }
 
     const token = jwt.sign({ id: usuario.id }, config.secret, {
-      expiresIn: 86400 // 24 horas
+      expiresIn: 86400 
     });
 
     res.status(200).send({

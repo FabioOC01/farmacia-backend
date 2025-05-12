@@ -3,7 +3,7 @@ const Usuario = db.usuario;
 
 checkDuplicateEmail = async (req, res, next) => {
   try {
-    // Email
+    
     const usuario = await Usuario.findOne({
       where: {
         email: req.body.email

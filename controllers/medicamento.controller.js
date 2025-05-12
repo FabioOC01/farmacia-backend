@@ -2,9 +2,9 @@ const db = require("../models");
 const Medicamento = db.medicamento;
 const Especialidad = db.especialidad;
 
-// Crear y guardar un nuevo Medicamento
+
 exports.create = async (req, res) => {
-  // Validar solicitud
+ 
   if (!req.body.descripcionMed) {
     res.status(400).send({
       message: "La descripción no puede estar vacía!"
@@ -12,7 +12,6 @@ exports.create = async (req, res) => {
     return;
   }
 
-  // Crear un Medicamento
   const medicamento = {
     descripcionMed: req.body.descripcionMed,
     fechaFabricacion: req.body.fechaFabricacion,
@@ -25,7 +24,7 @@ exports.create = async (req, res) => {
     codEspec: req.body.codEspec
   };
 
-  // Guardar Medicamento en la base de datos
+
   try {
     const data = await Medicamento.create(medicamento);
     res.send(data);
@@ -36,7 +35,6 @@ exports.create = async (req, res) => {
   }
 };
 
-// Obtener todos los Medicamentos de la base de datos
 exports.findAll = async (req, res) => {
   try {
     const data = await Medicamento.findAll({
@@ -53,7 +51,6 @@ exports.findAll = async (req, res) => {
   }
 };
 
-// Encontrar un único Medicamento con un id
 exports.findOne = async (req, res) => {
   const id = req.params.id;
 
@@ -79,7 +76,6 @@ exports.findOne = async (req, res) => {
   }
 };
 
-// Actualizar un Medicamento por el id
 exports.update = async (req, res) => {
   const id = req.params.id;
 
@@ -104,7 +100,6 @@ exports.update = async (req, res) => {
   }
 };
 
-// Eliminar un Medicamento con el id especificado
 exports.delete = async (req, res) => {
   const id = req.params.id;
 
